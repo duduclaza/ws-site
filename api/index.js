@@ -8,17 +8,10 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.'));
-
-// Serve static files
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
 
 // API Routes
 
@@ -200,18 +193,9 @@ app.delete('/api/admin/contacts/:id', verifyAdmin, async (req, res) => {
     }
 });
 
-// Serve admin panel
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'admin.html'));
-});
-
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📊 Admin panel: http://localhost:${PORT}/admin`);
-});
-
 // Graceful shutdown
 process.on('beforeExit', async () => {
     await prisma.$disconnect();
 });
+
+module.exports = app;
