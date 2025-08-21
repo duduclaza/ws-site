@@ -227,6 +227,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Contact Form
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('.btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            // For now, just show success message (backend will be added later)
+            setTimeout(() => {
+                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Mensagem';
+            }, 1000);
+        });
+    }
+
     // Testimonial Slider
     const testimonialItems = document.querySelectorAll('.testimonial-item');
     const prevBtn = document.querySelector('.testimonial-prev');
