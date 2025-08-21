@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolutionsWeb - Criamos sites e apps com Inteligência Artificial</title>
+    <meta name="description" content="Criamos sites e aplicativos personalizados com inteligência artificial, design moderno e alta performance.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">S<span class="highlight">⚙</span>lutionsWeb</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">Início</a></li>
+                        <li><a href="#services" class="nav-link">Serviços</a></li>
+                        <li><a href="#about" class="nav-link">Sobre</a></li>
+                        <li><a href="#contact" class="nav-link">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <canvas id="particleCanvas"></canvas>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="animate-text">Criamos sites e apps<br><span class="highlight">com Inteligência Artificial</span></h1>
+                    <p class="hero-description">Transformamos ideias em experiências digitais extraordinárias com design moderno e tecnologia avançada.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Fale Conosco</a>
+                        <a href="#services" class="btn btn-secondary">Nossos Serviços</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-container">
+                        <img src="images/ai-robot.svg" alt="Robô de Inteligência Artificial" class="floating">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <p class="section-description">Criamos sites e apps personalizados com inteligência artificial, design elegante e funcionalidade em movimento.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="service-title">Sites Inteligentes</h3>
+                    <p class="service-description">Criamos plataformas ultra responsivas e funcionais em minutos.</p>
+                    <a href="#contact" class="service-link">Saiba mais</a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Apps Personalizados</h3>
+                    <p class="service-description">Aplicativos feitos sob medida para cada necessidade específica.</p>
+                    <a href="#contact" class="service-link">Saiba mais</a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-title">Soluções com IA</h3>
+                    <p class="service-description">Desenvolvemos sites inteligentes que se adaptam aos seus requisitos.</p>
+                    <a href="#contact" class="service-link">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="images/about-image.svg" alt="Sobre a SolutionsWeb">
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <div class="section-header">
+                        <h2 class="section-title">Sobre a Solutions Web</h2>
+                    </div>
+                    <p>Na Solutions Web, acreditamos no poder da tecnologia para transformar ideias em experiências extraordinárias. Somos uma startup movida pela inovação e apaixonada por criar <strong>soluções digitais inteligentes</strong> que conectam empresas e clientes.</p>
+                    <p>Desenvolvemos <strong>sites e aplicativos personalizados com inteligência artificial</strong>, pensados para atender às necessidades reais do seu negócio. Nossa missão é entregar <strong>velocidade, elegância e funcionalidade</strong> em cada projeto, combinando design moderno com performance de alto nível.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h3 class="stat-number">150+</h3>
+                            <p class="stat-text">Clientes Felizes</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">15</h3>
+                            <p class="stat-text">Satisfação Garantida</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Entre em Contato</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projetos Incríveis</h2>
+                <p class="section-description">Veja nossos sites e apps personalizados com inteligência artificial.</p>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="sites">Sites</button>
+                <button class="filter-btn" data-filter="apps">Apps</button>
+                <button class="filter-btn" data-filter="ai">IA</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="sites,ai">
+                    <div class="project-img">
+                        <img src="images/project1.jpg" alt="Projeto 1">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Site Inteligente</h3>
+                                <p>Design moderno com IA</p>
+                                <a href="#" class="project-link">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="apps,ai">
+                    <div class="project-img">
+                        <img src="images/project2.jpg" alt="Projeto 2">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>App Personalizado</h3>
+                                <p>Solução mobile com IA</p>
+                                <a href="#" class="project-link">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="ai">
+                    <div class="project-img">
+                        <img src="images/project3.jpg" alt="Projeto 3">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Chatbot IA</h3>
+                                <p>Assistente virtual inteligente</p>
+                                <a href="#" class="project-link">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="sites">
+                    <div class="project-img">
+                        <img src="images/project4.jpg" alt="Projeto 4">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>E-commerce</h3>
+                                <p>Loja virtual completa</p>
+                                <a href="#" class="project-link">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O Que Dizem Sobre Nós</h2>
+                <p class="section-description">Feedback dos nossos clientes satisfeitos</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Os sites criados pela Solutions Web são fantásticos, rápidos e funcionais. Super recomendo a todos!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="author-name">Ana Silva</h4>
+                                <p class="author-position">CEO, TechStart</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Profissionais extremamente competentes e criativos. Entregaram mais do que esperávamos no prazo combinado."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="author-name">Carlos Mendes</h4>
+                                <p class="author-position">Diretor, InnovaTech</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contato Rápido</h2>
+                <p class="section-description">Entre em contato para criar seu site inteligente e elegante.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Seu nome completo</label>
+                            <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Seu email de contato</label>
+                            <input type="email" id="email" name="email" placeholder="Digite seu email aqui" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Sua mensagem ou pergunta</label>
+                            <textarea id="message" name="message" placeholder="Escreva sua mensagem aqui" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Enviar mensagem agora</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Localização</h3>
+                            <p>Estamos localizados em um ambiente digital, prontos para criar seu site inteligente e elegante com rapidez e eficiência.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Horário</h3>
+                            <p>Segunda a Sexta 08:00h - 17:00h</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>contato@solutionsweb.com.br</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3>Fique por dentro das novidades</h3>
+                    <p>Assine nossa newsletter para receber dicas e atualizações sobre tecnologia e design.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Digite seu email aqui" required>
+                    <button type="submit" class="btn btn-primary">Enviar solicitação agora</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <span class="logo-text">S<span class="highlight">⚙</span>lutionsWeb</span>
+                    </a>
+                    <p>Transformando ideias em experiências digitais extraordinárias.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Links Rápidos</h3>
+                        <ul>
+                            <li><a href="#home">Início</a></li>
+                            <li><a href="#services">Serviços</a></li>
+                            <li><a href="#about">Sobre</a></li>
+                            <li><a href="#projects">Projetos</a></li>
+                            <li><a href="#contact">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Serviços</h3>
+                        <ul>
+                            <li><a href="#services">Sites Inteligentes</a></li>
+                            <li><a href="#services">Apps Personalizados</a></li>
+                            <li><a href="#services">Soluções com IA</a></li>
+                            <li><a href="#services">Marketing Digital</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Contato</h3>
+                        <ul>
+                            <li><a href="mailto:contato@solutionsweb.com.br">contato@solutionsweb.com.br</a></li>
+                            <li><p>Segunda a Sexta 08:00h - 17:00h</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="copyright">© 2025. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html>
