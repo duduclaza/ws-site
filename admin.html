@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - SolutionsWeb</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .login-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .dashboard {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .contacts-section {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item.unread {
+            border-left: 4px solid #667eea;
+            background: #f8f9ff;
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .contact-date {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .contact-email {
+            color: #667eea;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .contact-message {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a6fd8;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .login-form {
+                padding: 30px 20px;
+            }
+            
+            .dashboard-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginForm" class="login-form">
+            <h2 style="margin-bottom: 30px; color: #333;">Admin Login</h2>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Senha</label>
+                    <input type="password" id="password" class="form-input" required>
+                </div>
+                <button type="submit" class="login-btn">Entrar</button>
+                <div id="loginError" class="error-message"></div>
+            </form>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="dashboard">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Painel Administrativo</h1>
+                <button id="logoutBtn" class="logout-btn">Sair</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div id="totalContacts" class="stat-number">0</div>
+                    <div class="stat-label">Total de Contatos</div>
+                </div>
+                <div class="stat-card">
+                    <div id="unreadContacts" class="stat-number">0</div>
+                    <div class="stat-label">Não Lidas</div>
+                </div>
+                <div class="stat-card">
+                    <div id="todayContacts" class="stat-number">0</div>
+                    <div class="stat-label">Hoje</div>
+                </div>
+            </div>
+
+            <div class="contacts-section">
+                <h2 class="section-title">Mensagens de Contato</h2>
+                <div id="contactsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API Base URL - Update this to your backend URL
+        const API_BASE = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000' 
+            : 'https://your-backend-url.herokuapp.com'; // Update this!
+
+        let authToken = localStorage.getItem('adminToken');
+
+        // DOM Elements
+        const loginForm = document.getElementById('loginForm');
+        const dashboard = document.getElementById('dashboard');
+        const adminLoginForm = document.getElementById('adminLoginForm');
+        const loginError = document.getElementById('loginError');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const contactsList = document.getElementById('contactsList');
+        const totalContacts = document.getElementById('totalContacts');
+        const unreadContacts = document.getElementById('unreadContacts');
+        const todayContacts = document.getElementById('todayContacts');
+
+        // Check if user is already logged in
+        if (authToken) {
+            showDashboard();
+        }
+
+        // Login form submission
+        adminLoginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                loginForm.classList.add('loading');
+                loginError.textContent = '';
+                
+                const response = await fetch(`${API_BASE}/api/admin/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    authToken = data.token;
+                    localStorage.setItem('adminToken', authToken);
+                    showDashboard();
+                } else {
+                    loginError.textContent = data.message;
+                }
+            } catch (error) {
+                loginError.textContent = 'Erro de conexão. Verifique se o backend está rodando.';
+                console.error('Login error:', error);
+            } finally {
+                loginForm.classList.remove('loading');
+            }
+        });
+
+        // Logout
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('adminToken');
+            authToken = null;
+            showLogin();
+        });
+
+        // Show dashboard
+        function showDashboard() {
+            loginForm.style.display = 'none';
+            dashboard.style.display = 'block';
+            loadContacts();
+        }
+
+        // Show login
+        function showLogin() {
+            loginForm.style.display = 'block';
+            dashboard.style.display = 'none';
+            adminLoginForm.reset();
+            loginError.textContent = '';
+        }
+
+        // Load contacts
+        async function loadContacts() {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/contacts`, {
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+                
+                if (response.status === 401) {
+                    showLogin();
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayContacts(data.contacts);
+                    updateStats(data.contacts);
+                }
+            } catch (error) {
+                console.error('Error loading contacts:', error);
+                contactsList.innerHTML = '<p style="text-align: center; color: #666;">Erro ao carregar contatos. Verifique se o backend está rodando.</p>';
+            }
+        }
+
+        // Display contacts
+        function displayContacts(contacts) {
+            if (contacts.length === 0) {
+                contactsList.innerHTML = '<p style="text-align: center; color: #666;">Nenhuma mensagem de contato ainda.</p>';
+                return;
+            }
+
+            contactsList.innerHTML = contacts.map(contact => `
+                <div class="contact-item ${!contact.read ? 'unread' : ''}" data-id="${contact.id}">
+                    <div class="contact-header">
+                        <div class="contact-name">${contact.name}</div>
+                        <div class="contact-date">${new Date(contact.createdAt).toLocaleString('pt-BR')}</div>
+                    </div>
+                    <div class="contact-email">${contact.email}</div>
+                    ${contact.phone ? `<div style="color: #666; font-size: 14px; margin-bottom: 5px;">📞 ${contact.phone}</div>` : ''}
+                    ${contact.subject ? `<div style="color: #666; font-size: 14px; margin-bottom: 10px;"><strong>Assunto:</strong> ${contact.subject}</div>` : ''}
+                    <div class="contact-message">${contact.message}</div>
+                    <div class="contact-actions">
+                        ${!contact.read ? `<button class="btn btn-primary" onclick="markAsRead(${contact.id})">Marcar como Lida</button>` : ''}
+                        <button class="btn btn-danger" onclick="deleteContact(${contact.id})">Excluir</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update stats
+        function updateStats(contacts) {
+            const total = contacts.length;
+            const unread = contacts.filter(c => !c.read).length;
+            const today = contacts.filter(c => {
+                const contactDate = new Date(c.createdAt);
+                const todayDate = new Date();
+                return contactDate.toDateString() === todayDate.toDateString();
+            }).length;
+
+            totalContacts.textContent = total;
+            unreadContacts.textContent = unread;
+            todayContacts.textContent = today;
+        }
+
+        // Mark contact as read
+        async function markAsRead(contactId) {
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/contacts/${contactId}/read`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+                
+                if (response.ok) {
+                    loadContacts(); // Reload contacts
+                }
+            } catch (error) {
+                console.error('Error marking as read:', error);
+            }
+        }
+
+        // Delete contact
+        async function deleteContact(contactId) {
+            if (!confirm('Tem certeza que deseja excluir esta mensagem?')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/admin/contacts/${contactId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+                
+                if (response.ok) {
+                    loadContacts(); // Reload contacts
+                }
+            } catch (error) {
+                console.error('Error deleting contact:', error);
+            }
+        }
+
+        // Auto-refresh contacts every 30 seconds
+        setInterval(() => {
+            if (authToken && dashboard.style.display !== 'none') {
+                loadContacts();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>

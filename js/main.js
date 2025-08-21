@@ -230,20 +230,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact Form
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            const formData = new FormData(contactForm);
             
             const submitBtn = contactForm.querySelector('.btn');
             submitBtn.disabled = true;
             submitBtn.textContent = 'Enviando...';
             
-            // For now, just show success message (backend will be added later)
-            setTimeout(() => {
-                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-                contactForm.reset();
+            try {
+                const response = await fetch('http://localhost:3000/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(Object.fromEntries(formData))
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    contactForm.reset();
+                } else {
+                    throw new Error(result.message || 'Erro ao enviar mensagem');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Erro ao enviar mensagem. Tente novamente mais tarde.');
+            } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Enviar Mensagem';
-            }, 1000);
+            }
         });
     }
 
