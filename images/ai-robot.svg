@@ -23,15 +23,15 @@
   <circle cx="450" cy="220" r="25" fill="url(#eyeGrad)"/>
   <circle cx="350" cy="220" r="15" fill="#ffffff"/>
   <circle cx="450" cy="220" r="15" fill="#ffffff"/>
-  <circle cx="350" cy="220" r="8" fill="#1f2937"/>
-  <circle cx="450" cy="220" r="8" fill="#1f2937"/>
+  <circle cx="350" cy="218" r="8" fill="#1f2937"/>
+  <circle cx="450" cy="218" r="8" fill="#1f2937"/>
   
-  <!-- Robot Mouth -->
-  <rect x="370" y="270" width="60" height="20" rx="10" fill="url(#robotGrad)"/>
-  <rect x="375" y="275" width="10" height="10" rx="2" fill="#ffffff"/>
-  <rect x="390" y="275" width="10" height="10" rx="2" fill="#ffffff"/>
-  <rect x="405" y="275" width="10" height="10" rx="2" fill="#ffffff"/>
-  <rect x="420" y="275" width="10" height="10" rx="2" fill="#ffffff"/>
+  <!-- Robot Mouth - Friendly smile -->
+  <path d="M 370 275 Q 400 290 430 275" stroke="url(#robotGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  
+  <!-- Robot Cheeks - Friendly blush -->
+  <circle cx="320" cy="250" r="8" fill="#ff9999" opacity="0.6"/>
+  <circle cx="480" cy="250" r="8" fill="#ff9999" opacity="0.6"/>
   
   <!-- Robot Antennas -->
   <line x1="350" y1="150" x2="350" y2="120" stroke="url(#robotGrad)" stroke-width="4"/>
