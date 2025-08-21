@@ -258,42 +258,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Form Submission
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple validation
-            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
-                alert('Por favor, preencha todos os campos.');
-                return;
-            }
-            
-            // Here you would normally send the form data to a server
-            // For demo purposes, we'll just show a success message
-            const submitBtn = contactForm.querySelector('.btn-submit');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission
-            setTimeout(() => {
-                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        });
-    }
-
     // Newsletter Form
     const newsletterForm = document.querySelector('.newsletter-form');
     

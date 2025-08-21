@@ -915,6 +915,47 @@ section {
 }
 
 /*--------------------------------------------------------------
+# WhatsApp Button
+--------------------------------------------------------------*/
+.whatsapp-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    font-size: 1.5rem;
+    animation: whatsappPulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128c7e;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes whatsappPulse {
+    0% {
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.7), 0 0 0 10px rgba(37, 211, 102, 0.1);
+    }
+    100% {
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+
+/*--------------------------------------------------------------
 # Back to Top Button
 --------------------------------------------------------------*/
 .back-to-top {
@@ -950,35 +991,54 @@ section {
 /*--------------------------------------------------------------
 # Responsive Styles
 --------------------------------------------------------------*/
+
+/* Tablets (1024px and below) */
 @media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
     h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
     h2 {
         font-size: 2.2rem;
     }
     
+    .hero-section {
+        padding: 140px 0 80px;
+    }
+    
     .hero-content {
         flex-direction: column;
+        gap: 40px;
     }
     
     .hero-text {
         padding-right: 0;
-        margin-bottom: 50px;
         text-align: center;
     }
     
     .hero-buttons {
         justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .hero-image {
+        order: -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
     
     .about-content {
         flex-direction: column;
-    }
-    
-    .about-image {
-        margin-bottom: 30px;
+        gap: 30px;
     }
     
     .about-text .section-header {
@@ -990,40 +1050,55 @@ section {
         transform: translateX(-50%);
     }
     
+    .about-stats {
+        justify-content: center;
+    }
+    
     .contact-content {
         flex-direction: column;
+        gap: 30px;
     }
     
     .newsletter-content {
         flex-direction: column;
         text-align: center;
+        gap: 20px;
     }
     
     .newsletter-form {
+        max-width: 400px;
         margin: 0 auto;
     }
 }
 
+/* Mobile Devices (768px and below) */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
     .header {
-        padding: 15px 0;
+        padding: 12px 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
     }
     
     .mobile-menu-btn {
         display: block;
+        z-index: 101;
     }
     
     .main-nav {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: -100%;
-        width: 80%;
+        width: 100%;
         height: 100vh;
-        background-color: white;
-        padding: 50px 30px;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 100px 30px 30px;
         transition: all 0.4s ease;
-        z-index: 99;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        z-index: 100;
     }
     
     .main-nav.active {
@@ -1032,81 +1107,226 @@ section {
     
     .nav-list {
         flex-direction: column;
+        gap: 20px;
     }
     
     .nav-link {
         display: block;
-        margin: 15px 0;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+        padding: 15px 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(67, 97, 238, 0.1);
     }
     
     .hero-section {
-        padding: 150px 0 80px;
+        padding: 120px 0 60px;
+        min-height: auto;
     }
     
     h1 {
-        font-size: 2.5rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-stats {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
     }
     
     h2 {
         font-size: 1.8rem;
     }
     
+    .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+    
     .btn {
-        padding: 10px 20px;
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 1.1rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .service-card {
+        padding: 25px 20px;
+    }
+    
+    .about-stats {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+    
+    .contact-form {
+        padding: 25px 20px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .whatsapp-btn {
+        right: 20px;
+        bottom: 80px;
+        width: 55px;
+        height: 55px;
+    }
+    
+    .back-to-top {
+        right: 20px;
+        bottom: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* Touch-friendly interactions */
+    .service-card:hover {
+        transform: none;
+    }
+    
+    .service-card:active {
+        transform: scale(0.98);
+    }
+    
+    .btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Small Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .hero-section {
+        padding: 100px 0 50px;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
     }
     
     .hero-buttons {
         flex-direction: column;
         gap: 10px;
+        width: 100%;
     }
     
     .hero-buttons .btn {
         width: 100%;
     }
     
-    .section-padding {
-        padding: 60px 0;
+    section {
+        padding: 50px 0;
+    }
+    
+    .service-card {
+        padding: 20px 15px;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .contact-form {
+        padding: 20px 15px;
     }
     
     .newsletter-form {
         flex-direction: column;
+        gap: 15px;
+    }
+    
+    .newsletter-form input {
+        width: 100%;
+        min-width: auto;
     }
     
     .newsletter-form .btn {
         width: 100%;
+    }
+    
+    .whatsapp-btn {
+        right: 15px;
+        bottom: 70px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .back-to-top {
+        right: 15px;
+        bottom: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .footer-links-column {
+        min-width: auto;
+    }
+    
+    /* Improve touch targets */
+    .nav-link {
+        padding: 20px 0;
+        font-size: 1.2rem;
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    /* Particle canvas optimization for mobile */
+    #particleCanvas {
+        display: none; /* Hide particles on very small screens for performance */
     }
 }
